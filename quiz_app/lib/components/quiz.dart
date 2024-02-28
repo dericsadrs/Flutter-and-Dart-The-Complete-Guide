@@ -21,7 +21,7 @@ class _QuizState extends State<Quiz> {
   var activeScreen = 'start-screen';
   void switchScreen() {
   setState(() {
-      activeScreen = activeScreen;
+      activeScreen = 'questions-screen';
   });
   }
 
