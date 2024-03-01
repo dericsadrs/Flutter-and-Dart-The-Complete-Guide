@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/components/answer_button.dart';
 import 'package:quiz_app/models/quiz_questions.dart';
 
 const beginAlignment = Alignment.topLeft;
@@ -24,13 +25,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
         
         //Padding
         const Padding(padding: EdgeInsets.all(20)),
-        
-        ElevatedButton(onPressed: () {}, child: const Text("Answer 1")),
-        ElevatedButton(onPressed: () {}, child: const Text("Answer 2")),
-        ElevatedButton(onPressed: () {}, child: const Text("Answer 3")),
-        ElevatedButton(onPressed: () {}, child: const Text("Answer 4")),
-        
-      
+        AnswerButton(
+        answerText: "Answer 1",
+        onTap: () {},),
       ],),
     );
   }
