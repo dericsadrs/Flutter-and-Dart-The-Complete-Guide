@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:quiz_app/components/question_screen.dart';
 import 'package:quiz_app/components/start_screen.dart';
 import 'package:quiz_app/data/questions.dart';
+import  'package:quiz_app/components/results_screen.dart';
 
 const beginAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
@@ -32,7 +33,7 @@ class _QuizState extends State<Quiz> {
     if (selectedAnswer.length == questions.length) {
       setState(() {
         selectedAnswer = [];
-        activeScreen = 'start-screen';
+        activeScreen = 'results-screen';
       });
     }
   }
@@ -51,8 +52,12 @@ class _QuizState extends State<Quiz> {
             end:  endAlignment,
             )
           ),
-          child: activeScreen == 'start-screen' ? StartScreen(switchScreen):  QuestionScreen(onSelectAnswer: chooseAnswer,)),
-          )
+          child: activeScreen == 'start-screen'
+    ? StartScreen(switchScreen)
+    : activeScreen == 'results-screen'
+        ? ResultScreen(chooseAnswers: selectedAnswer,)
+        : QuestionScreen(onSelectAnswer: chooseAnswer),
+        ))
           );
   }
 }
