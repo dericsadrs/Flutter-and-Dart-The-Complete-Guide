@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/components/questions_summary.dart';
 import 'package:quiz_app/data/questions.dart';
-
+import 'package:quiz_app/components/results_screen.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.chooseAnswers});
@@ -29,7 +30,8 @@ class ResultScreen extends StatelessWidget {
             children: [
               const Text('You answered X of out Y Correctly'),
               const Padding(padding: EdgeInsets.all(20)),
-              const Text('List of all answered questions'),
+              // Pass the data to Question Summary Widget then returns a Column Widget with data
+              QuestionsSummary(getSummaryData()),
               const Padding(padding: EdgeInsets.all(20)),
               TextButton(onPressed: () {}, child: const Text('Restart Quiz'))
               
